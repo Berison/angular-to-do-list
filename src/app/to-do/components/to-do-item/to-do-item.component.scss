@@ -1,0 +1,14 @@
+.to-do-item {
+  margin: 0 10px;
+
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  &.completed-to-do {
+    h3 {
+      opacity: .7;
+      text-decoration: line-through;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+<form 
+  class="form-create"
+  [formGroup]="createToDoForm" 
+  (ngSubmit)="onSubmit()"
+  >
+  <div>
+    <label 
+      for="new-to-do-item" 
+      class="form-create__label"
+      [innerHTML]="data.form.label.text"
+      ></label>
+    <input 
+      id="new-to-do-item" 
+      class="form-create__input" 
+      formControlName="new-to-do-item" 
+      [placeholder]="data.form.input.placeholder"
+      />
+    <button 
+      type="submit"
+      class="form-create__submit"
+      [disabled]="createToDoForm.invalid" 
+      [innerHTML]="data.form.submit.text"></button>
+  </div>
+  <p 
+    *ngIf="createToDoForm.get('new-to-do-item')?.invalid && createToDoForm.get('new-to-do-item')?.touched"
+    class="form-create__alert"
+    [innerHTML]="data.form.alert.text"
+    ></p>
+</form>

@@ -1,0 +1,19 @@
+<div
+  class="to-do-item"
+  [ngClass]="{
+    'completed-to-do': isCompleted
+  }">
+  <input 
+    type="checkbox" 
+    name="complete-todo" 
+    [(ngModel)]="isCompleted" 
+    (ngModelChange)="onCheckboxChange($event)">
+
+  <h3 [innerHTML]="toDo.name"></h3>
+
+  <button 
+    type="button" 
+    class="remove-to-do" 
+    [innerHTML]="data.button.text"
+    (click)="deleteToDo()"></button>
+</div>

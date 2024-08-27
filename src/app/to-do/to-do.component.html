@@ -1,0 +1,11 @@
+<h1 [innerHTML]="data.title.text"></h1>
+<create-to-do></create-to-do>
+<search></search>
+<p 
+  class="to-do-items-title"
+  *ngIf="(toDoList$ | async)?.length !== 0" 
+  [innerHTML]="data.toDoItems.text"></p>
+<ng-container 
+  *ngFor="let item of (toDoList$ | async)">
+  <to-do-item [toDo]="item"></to-do-item>
+</ng-container>

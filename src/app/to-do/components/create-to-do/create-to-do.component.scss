@@ -1,0 +1,21 @@
+.form-create {
+  margin-bottom: 20px;
+  
+  & > div {
+    display: flex;
+    align-items: center;
+  }
+
+  &__label {
+    margin-right: 20px;
+  }
+
+  &__alert {
+    color: rgb(255, 71, 39);
+  }
+
+  &__submit {
+    margin-left: 20px;
+    padding: 10px;
+  }
+}

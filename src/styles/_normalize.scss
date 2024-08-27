@@ -1,0 +1,18 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f0f8ff;
+  font-family: "Roboto", sans-serif;
+}
+
+html,
+body {
+  padding: 10px;
+}
+
+input {
+  outline: none;
+  border: 2px solid #000;
+  padding: 10px;
+}
