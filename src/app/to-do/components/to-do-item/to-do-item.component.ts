@@ -5,7 +5,7 @@ import { ToDoStateService } from '../../services/state.service';
 @Component({
   selector: 'to-do-item',
   templateUrl: './to-do-item.component.html',
-  styleUrl: './to-do-item.component.scss'
+  styleUrl: './to-do-item.component.scss',
 })
 export class ToDoItemComponent {
   @Input() toDo!: ToDoItem;
@@ -13,21 +13,17 @@ export class ToDoItemComponent {
   // in the future, this can be converted to data from some other source, such as a database
   data = {
     button: {
-      text: "DELETE ITEM"
-    }
+      text: 'DELETE ITEM',
+    },
   };
 
-  isCompleted: boolean = false;
-
-  constructor(
-    private toDoStateService: ToDoStateService
-  ) { }
+  constructor(private toDoStateService: ToDoStateService) {}
 
   onCheckboxChange(isCompleted: boolean) {
-    this.toDoStateService.completeToDoItemState(this.toDo.id, isCompleted)
+    this.toDoStateService.completeToDoItemState(this.toDo.id, isCompleted);
   }
 
   deleteToDo() {
-    this.toDoStateService.removeToDoItem(this.toDo.id)
+    this.toDoStateService.removeToDoItem(this.toDo.id);
   }
 }

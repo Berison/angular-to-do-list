@@ -1,14 +1,14 @@
-import { Injectable } from "@angular/core";
-import { BehaviorSubject } from "rxjs";
-import { AppState, ToDoItem  } from "../interfaces/state";
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { AppState, ToDoItem } from '../interfaces/state';
 
 @Injectable()
 export class ToDoStateService {
   public state$: BehaviorSubject<AppState> = new BehaviorSubject<AppState>({
-    toDoList: []
+    toDoList: [],
   });
 
-  constructor() { };
+  constructor() {}
 
   addToDoItem(item: ToDoItem) {
     const currentState = this.state$.value;
@@ -18,19 +18,19 @@ export class ToDoStateService {
 
   removeToDoItem(itemId: number) {
     const currentState = this.state$.value;
-    const updatedToDoList = currentState.toDoList.filter(item => item.id !== itemId);
+    const updatedToDoList = currentState.toDoList.filter(
+      (item) => item.id !== itemId
+    );
     this.state$.next({ toDoList: updatedToDoList });
   }
 
   completeToDoItemState(itemId: number, complete: boolean) {
     const currentState = this.state$.value,
-      foundToDoItem = currentState.toDoList.filter(item => item.id == itemId).map(item => {
-        item.completed = complete
-        return item
-      });
-    
-    console.log(foundToDoItem);
-    
-    // this.state$.next({ toDoList: updatedToDoList });
+      foundToDoItem = currentState.toDoList.filter(
+        (item) => item.id == itemId
+      )[0];
+    foundToDoItem.completed = complete;
+
+    this.state$.next({ toDoList: currentState.toDoList });
   }
 }
